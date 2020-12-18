@@ -4,5 +4,5 @@
     <string name="delete">DELETE</string>
     <string name="xor_linked_list">XOR LINKED LIST</string>
     <string name="search">SEARCH</string>
-    <string name="insert_number">Insert Number</string>
+    <string name="insert_number" />
 </resources>
