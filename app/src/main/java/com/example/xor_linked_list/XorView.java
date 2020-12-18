@@ -16,14 +16,15 @@ public class XorView extends View {
 //        Crear lista vacia
         list= new Lcde();
 //        crear pincel negro
-        black.setARGB(0,0,0,0);
+        black.setARGB(255,0,0,0);
+        black.setStrokeWidth((float) 0.12);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 //        poner fondo negro
-        canvas.drawRGB(255,255,255);
+        canvas.drawRGB(20,255,255);
         Node actual=null;
 //        Conseguir el primer nodo
         if(list.getStart()!=null){
@@ -32,11 +33,11 @@ public class XorView extends View {
         for (int i=0;i<list.sizeLCDE;++i){
             if (actual!=null){
 //                dibujar cuadrado interior
-                canvas.drawRect(12*i,10,10+12*i,40,black);
+                canvas.drawRect(1200*i,50,100+1200*i,40,black);
 //                dibujar cuadrado exterior
-                canvas.drawRect(10*i,8,10+10*i,42,black);
+                canvas.drawRect(100*i,80,100+100*i,420,black);
 //                poner titulo con el valor
-                canvas.drawText(String.valueOf(actual.fact), (int)(((i * 12) + 8 + (12 * i)) / 2),25,black);
+                canvas.drawText(String.valueOf(actual.fact), (int)(((i * 120) + 80 + (120 * i)) / 2),25,black);
             }
 //           cambiar nodo
             actual=actual.nextNode;
