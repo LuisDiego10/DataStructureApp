@@ -27,14 +27,14 @@ public class MainActivity extends AppCompatActivity {
     public void insert(View view){
         RelativeLayout screen= (RelativeLayout) findViewById(R.id.layout1);
         screen.removeView(xorlist);
-        EditText text= (EditText) findViewById(R.id.Textnumber);
+        EditText text= (EditText) findViewById(R.id.Text);
         XorView.list.insert(Integer.parseInt(text.getText().toString()));
         screen.addView(xorlist);
     }
     public void delete(View view){
         RelativeLayout screen= (RelativeLayout) findViewById(R.id.layout1);
         screen.removeView(xorlist);
-        EditText text= (EditText) findViewById(R.id.Textnumber);
+        EditText text= (EditText) findViewById(R.id.Text);
         XorView.list.deleteNode(Integer.parseInt(text.getText().toString()));
         screen.addView(xorlist);
     }
