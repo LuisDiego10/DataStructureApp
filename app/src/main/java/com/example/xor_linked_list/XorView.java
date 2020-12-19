@@ -55,7 +55,7 @@ public class XorView extends View {
                 canvas.drawRect(a+80,465,a+170,290,black);
 //                dibujar cuadrado exterior
                 //left=Indica desde que fila deseo que se dibuje
-                if(actual!=nodefind) {
+                if(actual.fact!=nodefind.fact) {
                     canvas.drawRect(a + 15, 465, a + 245, 280, red);
                 }else{
                     canvas.drawRect(a + 15, 465, a + 245, 280, blue);
