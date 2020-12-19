@@ -15,7 +15,7 @@ public class XorView extends View {
     public Paint blue= new Paint();
     public Paint none= new Paint();
     public Paint text= new Paint();
-    public static Node nodefind=null;
+    public static Node nodefind=new Node();
     public XorView(Context context) {
         super(context);
 //        Crear lista vacia
@@ -35,6 +35,7 @@ public class XorView extends View {
         text.setStyle(Paint.Style.FILL);
         text.setStrokeWidth(60);
         text.setTextSize(45);
+        nodefind.fact=-1000;
     }
 
     @Override
@@ -55,11 +56,12 @@ public class XorView extends View {
                 canvas.drawRect(a+80,465,a+170,290,black);
 //                dibujar cuadrado exterior
                 //left=Indica desde que fila deseo que se dibuje
+
                 if(actual.fact!=nodefind.fact) {
                     canvas.drawRect(a + 15, 465, a + 245, 280, red);
                 }else{
                     canvas.drawRect(a + 15, 465, a + 245, 280, blue);
-                    nodefind=null;
+                    nodefind.fact=-10000;
                 }
 //                poner titulo con el valor
                 canvas.drawText(String.valueOf(actual.fact), (int)(a+110),385,text);
