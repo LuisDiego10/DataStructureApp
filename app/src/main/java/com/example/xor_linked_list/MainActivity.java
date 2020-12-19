@@ -60,10 +60,41 @@ public class MainActivity extends AppCompatActivity {
         System.out.println(XorView.list.sizeLCDE);
     }
     public void delete(View view){
+//        encontrar el layout actual
         ConstraintLayout screen= (ConstraintLayout) findViewById(R.id.layout1);
-        screen.removeView(xorlist);
+//        Eliminar la lista que se ve actualmente
+        ConstraintSet newScreenL= new ConstraintSet();
+//        Encontrar el cuadro de texto e insertar valor nuevo
         EditText text= (EditText) findViewById(R.id.Text);
-        XorView.list.deleteNode(Integer.parseInt(text.getText().toString()));
-        screen.addView(xorlist);
+        screen.removeView(xorlist);
+        try{
+            XorView.list.deleteNode(Integer.parseInt(text.getText().toString()));}
+        catch(Exception e){
+            System.out.println("no value founded");
+        }
+//        agregar el nuevo display de la lista
+        screen.addView(xorlist,0);
+        newScreenL.clone(screen);
+        newScreenL.connect(xorlist.getId(),ConstraintSet.TOP,screen.getId(),ConstraintSet.TOP,60);
+        newScreenL.applyTo(screen);
+    }
+    public void search(View view){
+//        encontrar el layout actual
+        ConstraintLayout screen= (ConstraintLayout) findViewById(R.id.layout1);
+//        Eliminar la lista que se ve actualmente
+        ConstraintSet newScreenL= new ConstraintSet();
+//        Encontrar el cuadro de texto e insertar valor nuevo
+        EditText text= (EditText) findViewById(R.id.Text);
+        screen.removeView(xorlist);
+        try{
+            XorView.nodefind= XorView.list.getNode(Integer.parseInt(text.getText().toString()));}
+        catch(Exception e){
+            System.out.println("no value founded");
+        }
+//        agregar el nuevo display de la lista
+        screen.addView(xorlist,0);
+        newScreenL.clone(screen);
+        newScreenL.connect(xorlist.getId(),ConstraintSet.TOP,screen.getId(),ConstraintSet.TOP,60);
+        newScreenL.applyTo(screen);
     }
 }

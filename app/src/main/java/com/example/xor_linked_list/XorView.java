@@ -12,8 +12,10 @@ public class XorView extends View {
     public static Lcde list;
     public Paint black= new Paint();
     public Paint red= new Paint();
+    public Paint blue= new Paint();
     public Paint none= new Paint();
     public Paint text= new Paint();
+    public static Node nodefind=null;
     public XorView(Context context) {
         super(context);
 //        Crear lista vacia
@@ -25,6 +27,9 @@ public class XorView extends View {
         red.setARGB(255,120,10,40);
         red.setStyle(Paint.Style.STROKE);
         red.setStrokeWidth(22);
+        blue.setARGB(255,20,10,240);
+        blue.setStyle(Paint.Style.STROKE);
+        blue.setStrokeWidth(22);
         none.setARGB(0,0,0,40);
         text.setARGB(255,20,20,20);
         text.setStyle(Paint.Style.FILL);
@@ -50,7 +55,12 @@ public class XorView extends View {
                 canvas.drawRect(a+80,465,a+170,290,black);
 //                dibujar cuadrado exterior
                 //left=Indica desde que fila deseo que se dibuje
-                canvas.drawRect(a+15,465,a+245,280,red);
+                if(actual!=nodefind) {
+                    canvas.drawRect(a + 15, 465, a + 245, 280, red);
+                }else{
+                    canvas.drawRect(a + 15, 465, a + 245, 280, blue);
+                    nodefind=null;
+                }
 //                poner titulo con el valor
                 canvas.drawText(String.valueOf(actual.fact), (int)(a+110),385,text);
                 if (i>1) {
