@@ -63,9 +63,8 @@ public class XorView extends View {
                 }
 //                poner titulo con el valor
                 canvas.drawText(String.valueOf(actual.fact), (int)(a+110),385,text);
-                if (i>1) {
-                    canvas.drawLine(a + 250, 340, a + 360, 340, black); }
-                }
+                canvas.drawLine(a + 250, 340, a + 360, 340, black);
+            }
 //           cambiar nodo
             actual=actual.nextNode;
 
