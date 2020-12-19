@@ -41,20 +41,21 @@ public class XorView extends View {
 //        Conseguir el primer nodo
         if(list.getStart()!=null){
             actual=list.getStart();}
-        int a=110;
+        int a=-300;
 //        Para cada nodo:
         for (int i=1;i<list.sizeLCDE+1;++i){
-            a=a+60;
+            a=a+360;
             if (actual!=null){
 //                dibujar cuadrado interior
-                canvas.drawRect(a+120,440,a+170,300,black);
+                canvas.drawRect(a+80,465,a+170,290,black);
 //                dibujar cuadrado exterior
-                canvas.drawRect(a+100,490,a+180,240,red);
+                //left=Indica desde que fila deseo que se dibuje
+                canvas.drawRect(a+15,465,a+245,280,red);
 //                poner titulo con el valor
-                canvas.drawText(String.valueOf(actual.fact), (int)((a-20+120*i )/2),425,text);
-
-                canvas.drawLine(a+120*i,340,a+120*i+70,340,black);
-            }
+                canvas.drawText(String.valueOf(actual.fact), (int)(a+110),385,text);
+                if (i>1) {
+                    canvas.drawLine(a + 250, 340, a + 360, 340, black); }
+                }
 //           cambiar nodo
             actual=actual.nextNode;
 
